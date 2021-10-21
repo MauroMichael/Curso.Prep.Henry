@@ -10,6 +10,11 @@ function deObjetoAmatriz(objeto){
       C: 3
     }) ➞ [["D", 1], ["B", 2], ["C", 3]]*/
   //Escribe tu código aquí
+  const nuevoArray = [];
+  for(let clave in objeto){
+    nuevoArray.push([clave, objeto[clave]]);
+  }
+  return nuevoArray;
 }
 
 
@@ -18,6 +23,11 @@ function numberOfCharacters(string) {
   //en formato par clave-valor.
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí
+  var objeto = {}; 
+    for(var i in string){
+        objeto[string[i]] = ( objeto[string[i]] || 0 ) + 1; // Incrementamos el valor si el elemento ya existe
+    }
+    return objeto;
 }
 
 
@@ -43,6 +53,15 @@ function capicua(numero){
   //La misma debe retornar: "Es capicua" si el número se número que se lee igual de 
   //izquierda a derecha que de derecha a izquierda. Caso contrario retorna "No es capicua"
   //Escribe tu código aquí
+   var str = numero.toString();
+   var mirror = '';
+   for(let i = 0; i < str.length; i++){
+     mirror = str[i] + mirror;
+   }
+   if(mirror === str){
+     return 'Es capicua';
+   }
+   else return 'No es capicua';
 }
 
 
@@ -50,6 +69,8 @@ function deleteAbc(cadena){
   //Define una función que elimine las letras "a", "b" y "c" de la cadena dada 
   //y devuelva la versión modificada o la misma cadena, en caso de contener dichas letras.
   //Escribe tu código aquí
+  var resultado = cadena.replace(/[abc]/g, '');
+  return resultado;
 }
 
 
@@ -57,6 +78,10 @@ function sortArray(arr) {
   //La función recibe una matriz de strings. Ordena la matriz en orden creciente de longitudes de cadena
   //Ej: Recibe ---> ["You", "are", "beautiful", "looking"] || Devuelve ---> [“You", "are", "looking", "beautiful"]
   //Escribe tu código aquí
+  var ord = arr.sort(function(a, b){
+    return a.length - b.length;
+  })
+  return ord;
 }
 
 
@@ -66,6 +91,15 @@ function buscoInterseccion(arreglo1, arreglo2){
   //Si no tienen elementos en común, retornar un arreglo vacío.
   //Aclaración: los arreglos no necesariamente tienen la misma longitud
   //Escribe tu código aquí  
+  const nuevoArray = []
+  for(let i = 0; i < arreglo1.length; i++){
+    for(let j = 0; j < arreglo2.length; j++){
+      if(arreglo1[i] === arreglo2[j]){
+        nuevoArray.push(arreglo2[j])
+      }
+    }
+  }
+  return nuevoArray;
 }
 
 
